@@ -30,24 +30,24 @@ iframe{
 	font-family:'ChunkFive';
 	font-style:normal;
 	font-weight:normal;
-	src:  url('//glowickis.github.io/EOT/ChunkFive-Roman.eot?') format('eot'),
-	      url('//glowickis.github.io/TTF/ChunkFive-Roman.ttf') format('truetype');
+	src:  url('../EOT/ChunkFive-Roman.eot?') format('eot'),
+	      url('../TTF/ChunkFive-Roman.ttf') format('truetype');
 }
 
 @font-face{
 	font-family:'Montserrat-Light';
 	font-style:normal;
 	font-weight:300;
-	src:	url('//glowickis.github.io/EOT/Montserrat-Light.eot?') format('eot'),
-		url('//glowickis.github.io/TTF/Montserrat-Light.ttf') format('truetype');
+	src:	url('../EOT/Montserrat-Light.eot?') format('eot'),
+		url('../TTF/Montserrat-Light.ttf') format('truetype');
 }
 
 @font-face{
 	font-family:'Montserrat-Thin';
 	font-style:normal;
 	font-weight:100;
-	src:	url('//glowickis.github.io/EOT/Montserrat-Thin.eot?') format('eot'),
-		url('//glowickis.github.io/TTF/Montserrat-Thin.ttf') format('truetype');
+	src:	url('../EOT/Montserrat-Thin.eot?') format('eot'),
+		url('../TTF/Montserrat-Thin.ttf') format('truetype');
 }
 
 div{
