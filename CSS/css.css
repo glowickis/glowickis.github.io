@@ -14,3 +14,49 @@ body{
   background-position:center center;
   background-repeat:no-repeat;
 }
+
+/* FONTFACE */
+
+@font-face{
+	font-family:'ChunkFive';
+	font-style:normal;
+	font-weight:normal;
+	src:  url('../EOT/ChunkFive-Roman.eot?') format('eot'),
+	      url('../TTF/ChunkFive-Roman.ttf') format('truetype');
+}
+
+@font-face{
+	font-family:'Montserrat-Light';
+	font-style:normal;
+	font-weight:300;
+	src:	url('../EOT/Montserrat-Light.eot?') format('eot'),
+			  url('../TTF/Montserrat-Light.ttf') format('truetype');
+}
+
+@font-face{
+	font-family:'Montserrat-Thin';
+	font-style:normal;
+	font-weight:100;
+	src:	url('../EOT/Montserrat-Thin.eot?') format('eot'),
+			  url('../TTF/Montserrat-Thin.ttf') format('truetype');
+}
+
+div{
+	font-family:'Montserrat-Light';
+	font-size:32px;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	color:rgba(255,255,255,1.00);
+	direction:ltr;
+	letter-spacing:0.64px;
+	line-height:32px;
+	text-align:left;
+	text-decoration:none;
+	text-indent:0px;
+	text-shadow:0px 0px 0px rgba(0,0,0,0);
+	text-transform:none;
+	vertical-align:0%;
+	white-space:nowrap;
+	word-spacing:0px;
+}
