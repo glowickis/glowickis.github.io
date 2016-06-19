@@ -1,58 +1,89 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<title>PORTFOLIO {XX} GLOWICKI</title>
 		<meta charset='UTF-8' />
 		<meta name='robots' content='none'>
-		<meta name='viewport' content='width=device-width,initial-scale=1.0' />
+		<meta name='viewport' content='width=device-width,initial-scale=1.0'>
 		<link rel='stylesheet' type='text/css' href='CSS/css.css'>
 		<link rel='shortcut icon' href='favicon.ico' type='image/x-icon'>
 		<link rel='icon' href='favicon.ico' type='image/x-icon'>
 	</head>
 	<body>
-		<iframe name='iframe' class='iframe' src='HTM/iframe.html' allowfullscreen></iframe>
+		<div id='overlay' class='overlay'>
+			<iframe id='iframe' name='iframe' class='iframe' scrolling='no' seamless allowfullscreen></iframe>
+			<svg id='button' class='button' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
+				<rect id='background' width='32' height='32' style='opacity:0.75'/>
+				<polygon id='foreground' points='22 12 20 10 16 14 12 10 10 12 14 16 10 20 12 22 16 18 20 22 22 20 18 16 22 12' style='fill:#fff'/>
+			</svg>
+		</div>
 		
 		<div class='background'></div>
 		
-		<div class='header'>
-			...
+		<div class='container'>
+			<div class='blackground fadeout'></div>
+			
+			<div class='content fadein'>
+				<a href='HTM/iframe.html' target='iframe'><div style='width:100px;height:1920px;'>...</div></a>
+			</div>
+			
+			
 		</div>
 		
 		<div class='footer'>
-			...
-		</div>
-		
-		<div class='container'>
-			<div class='content'>
-				<img src='JPG/adknowledge-adstation.jpg' />
-				<img src='JPG/adknowledge-decal.jpg' />
-				<img src='JPG/ant-man.jpg' />
-				<img src='JPG/avengers-age-of-ultron.jpg' />
-				<img src='JPG/behind-the-lights.jpg' />
-				
-				<img src='JPG/adknowledge-adstation.jpg' />
-				<img src='JPG/adknowledge-decal.jpg' />
-				<img src='JPG/ant-man.jpg' />
-				<img src='JPG/avengers-age-of-ultron.jpg' />
-				<img src='JPG/behind-the-lights.jpg' />
-				
-				<img src='JPG/adknowledge-adstation.jpg' />
-				<img src='JPG/adknowledge-decal.jpg' />
-				<img src='JPG/ant-man.jpg' />
-				<img src='JPG/avengers-age-of-ultron.jpg' />
-				<img src='JPG/behind-the-lights.jpg' />
-				
-				<img src='JPG/adknowledge-adstation.jpg' />
-				<img src='JPG/adknowledge-decal.jpg' />
-				<img src='JPG/ant-man.jpg' />
-				<img src='JPG/avengers-age-of-ultron.jpg' />
-				<img src='JPG/behind-the-lights.jpg' />
-				
-				<img src='JPG/adknowledge-adstation.jpg' />
-				<img src='JPG/adknowledge-decal.jpg' />
-				<img src='JPG/ant-man.jpg' />
-				<img src='JPG/avengers-age-of-ultron.jpg' />
-				<img src='JPG/behind-the-lights.jpg' />
+			<div class='topped padding'>
+				<div class='triptych'>
+					<a class='contacts' href='mailto:glowicki@mac.com?subject=Online Portfolio&body=' target='_blank'>
+						glowicki@mac.com
+					</a>
+				</div>
+				<div class='triptych'>
+					<a class='contacts' href='tel:+3107454948' target='_blank'>
+						310.745.4948
+					</a>
+				</div>
+				<div class='triptych'>
+					<a class='contacts' href='http://www.google.com/maps/place/Venice,+CA' target='_blank'>
+						Venice, CA
+					</a>
+				</div>
 			</div>
 		</div>
+		
+		<div class='header'>
+			<div class='bottomed'>
+				<div class='padding glowicki'>GLOWICKI</div>
+				<!--<div class='sections'>Reel</div>-->
+				<div class='padding sections'>Portfolio</div>
+				<div class='padding sections'>Resume</div>
+			</div>
+		</div>
+		
+		<script>
+			(function(){
+				var overlay = document.getElementById('overlay');
+				var iframe = document.getElementById('iframe');
+				var button = document.getElementById('button');
+				
+				if(overlay && iframe && button){
+					inner_html();
+					
+					function inner_html(){
+						iframe.contentWindow.document.body.innerHTML = '';
+					};
+					
+					iframe.onload = function(e){
+						if(e.target.contentWindow.document.body.innerHTML != ''){
+							overlay.style.display = 'block';
+						}
+					};
+					
+					button.onclick = function(e){
+						overlay.style.display = 'none';
+						inner_html();
+					};
+				}
+			})();
+		</script>
 	</body>
 </html>

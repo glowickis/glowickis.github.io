@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='robots' content='none'>
+		<meta name='viewport' content='width=device-width,initial-scale=1.0' />
+		<link rel='stylesheet' type='text/css' href='CSS/css.css'>
+		<link rel='shortcut icon' href='favicon.ico' type='image/x-icon'>
+		<link rel='icon' href='favicon.ico' type='image/x-icon'>
+	</head>
+	<body>
+		<div id='overlay' class='overlay'>
+			<iframe id='iframe' name='iframe' class='iframe' allowfullscreen></iframe>
+			<svg id='button' class='button' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
+				<rect id='background' width='32' height='32' style='opacity:0.75'/>
+				<polygon id='foreground' points='22 12 20 10 16 14 12 10 10 12 14 16 10 20 12 22 16 18 20 22 22 20 18 16 22 12' style='fill:#fff'/>
+			</svg>
+		</div>
+		
+		<div class='background'></div>
+		
+		<div class='header'>
+			...
+		</div>
+		
+		<div class='footer'>
+			...
+		</div>
+		
+		<div class='container'>
+			<div class='content '>
+				<div class='thumbnails'>
+				<a href='HTM/iframe.html' target='iframe'>
+				<img src='JPG/adknowledge-adstation.jpg' />
+				<img src='JPG/adknowledge-decal.jpg' />
+				<img src='JPG/ant-man.jpg' />
+				<img src='JPG/avengers-age-of-ultron.jpg' />
+				<img src='JPG/behind-the-lights.jpg' />
+				
+				<img src='JPG/adknowledge-adstation.jpg' />
+				<img src='JPG/adknowledge-decal.jpg' />
+				<img src='JPG/ant-man.jpg' />
+				<img src='JPG/avengers-age-of-ultron.jpg' />
+				<img src='JPG/behind-the-lights.jpg' />
+				
+				<img src='JPG/adknowledge-adstation.jpg' />
+				<img src='JPG/adknowledge-decal.jpg' />
+				<img src='JPG/ant-man.jpg' />
+				<img src='JPG/avengers-age-of-ultron.jpg' />
+				<img src='JPG/behind-the-lights.jpg' />
+				
+				<img src='JPG/adknowledge-adstation.jpg' />
+				<img src='JPG/adknowledge-decal.jpg' />
+				<img src='JPG/ant-man.jpg' />
+				<img src='JPG/avengers-age-of-ultron.jpg' />
+				<img src='JPG/behind-the-lights.jpg' />
+				
+				<img src='JPG/adknowledge-adstation.jpg' />
+				<img src='JPG/adknowledge-decal.jpg' />
+				<img src='JPG/ant-man.jpg' />
+				<img src='JPG/avengers-age-of-ultron.jpg' />
+				<img src='JPG/behind-the-lights.jpg' />
+				</a>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			(function(){
+				var overlay = document.getElementById('overlay');
+				var iframe = document.getElementById('iframe');
+				var button = document.getElementById('button');
+				
+				inner_html();
+				
+				function inner_html(){
+					iframe.contentWindow.document.body.innerHTML = '';
+				};
+				
+				iframe.onload = function(e){
+					if(e.target.contentWindow.document.body.innerHTML != ''){
+						overlay.style.display = 'block';
+					}
+				};
+				
+				button.onclick = function(e){
+					overlay.style.display = 'none';
+					inner_html();
+				};
+			})();
+		</script>
+	</body>
+</html>

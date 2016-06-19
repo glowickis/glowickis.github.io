@@ -12,7 +12,7 @@ html,body{
 	width:100%;
 	height:100%;
 	background-color:#000000;
-	overflow-x:initial;
+	overflow-x:hidden;
 }
 
 div,span{
@@ -27,12 +27,7 @@ img,video{
 }
 
 a{
-	color:#808080;
 	text-decoration:none;
-}
-
-a:active{
-	color:#FFFFFF;
 }
 
 /* FONTFACE */
@@ -79,44 +74,6 @@ a:active{
 	vertical-align:0%;
 	white-space:nowrap;
 	word-spacing:0px;
-}
-
-.padding{
-	padding:10px;
-}
-
-.bottomed{
-	position:absolute;
-	bottom:0px;
-}
-
-.glowicki{
-	font-family:'Montserrat-Thin';
-	color:rgba(255,255,255,0.25);
-	font-size:24px;
-}
-
-.sections{
-	font-family:'Montserrat-Light';
-	color:rgba(255,255,255,1.00);
-	font-size:12px;
-}
-
-.topped{
-	width:100%;
-	position:absolute;
-	top:0px;
-}
-
-.triptych{
-	width:33%;
-	text-align:center;
-}
-
-.contacts{
-	font-family:'Montserrat-Light';
-	color:rgba(255,255,255,0.75);
-	font-size:10px;
 }
 
 .f20{
@@ -169,9 +126,6 @@ a:active{
 	width:100%;
 	height:100%;
 	position:fixed;
-	left:0px;
-	top:0px;
-	overflow:visible;
 	z-index:9999;
 	display:none;
 }
@@ -179,15 +133,13 @@ a:active{
 .iframe{
 	width:100%;
 	height:100%;
-	position:absolute;
-	left:0px;
-	top:0px;
+	position:fixed;
 }
 
 .button{
 	width:64px;
 	height:64px;
-	position:absolute;
+	position:fixed;
 	top:0px;
 	right:0px;
 	opacity:0.75;
@@ -204,7 +156,6 @@ a:active{
 	background-color:rgba(0,0,0,0.75);
 	position:fixed;
 	top:0px;
-	left:0px;
 	z-index:999;
 }
 
@@ -214,7 +165,6 @@ a:active{
 	background-color:rgba(0,0,0,0.75);
 	position:fixed;
 	bottom:0px;
-	left:0px;
 	z-index:999;
 }
 
@@ -222,23 +172,18 @@ a:active{
 	width:100%;
 	height:100%;
 	position:fixed;
-	right:0px;
-	top:0px;
 	background-image:url('../IMG/background.jpg');
 	background-attachment:fixed;
 	background-color:#005677;
 	background-position:center center;
 	background-repeat:no-repeat;
-}
-
-.blackground{
-	width:100%;
-	height:100%;
-	position:absolute;
-	left:0px;
-	top:0px;
-	background-color:#000000;
-	opacity:1;
+	
+	/* name duration timing_function delay iteration_count direction fill_mode play_state */
+	animation:fadein 2s ease-in;
+	-o-animation:fadein 2s ease-in;
+	-ms-animation:fadein 2s ease-in;
+	-moz-animation:fadein 2s ease-in;
+	-webkit-animation:fadein 2s ease-in;
 }
 
 .container{
@@ -256,12 +201,7 @@ a:active{
 .thumbnails{
 	padding-top:64px;
 	padding-bottom:32px;
-}
-
-/* KEYFRAMES */
-
-.fadein{
-	/* name duration timing_function delay iteration_count direction fill_mode play_state */
+	
 	animation:fadein 1s ease-in;
 	-o-animation:fadein 1s ease-in;
 	-ms-animation:fadein 1s ease-in;
@@ -269,12 +209,14 @@ a:active{
 	-webkit-animation:fadein 1s ease-in;
 }
 
+/* KEYFRAMES */
+
 @keyframes fadein{
 	0%{
 		opacity:0;
 	}
 	100%{
-		opacity:1;
+		opacity:1
 	}
 }
 
@@ -283,7 +225,7 @@ a:active{
 		opacity:0;
 	}
 	100%{
-		opacity:1;
+		opacity:1
 	}
 }
 
@@ -292,7 +234,7 @@ a:active{
 		opacity:0;
 	}
 	100%{
-		opacity:1;
+		opacity:1
 	}
 }
 
@@ -301,7 +243,7 @@ a:active{
 		opacity:0;
 	}
 	100%{
-		opacity:1;
+		opacity:1
 	}
 }
 
@@ -310,61 +252,7 @@ a:active{
 		opacity:0;
 	}
 	100%{
-		opacity:1;
-	}
-}
-
-.fadeout{
-	/* name duration timing_function delay iteration_count direction fill_mode play_state */
-	animation:fadeout 2s ease-in 0s 1 forwards;
-	-o-animation:fadeout 2s ease-in 0s 1 forwards;
-	-ms-animation:fadeout 2s ease-in 0s 1 forwards;
-	-moz-animation:fadeout 2s ease-in 0s 1 forwards;
-	-webkit-animation:fadeout 2s ease-in 0s 1 forwards;
-}
-
-@keyframes fadeout{
-	0%{
-		opacity:1;
-	}
-	100%{
-		opacity:0;
-	}
-}
-
-@-o-keyframes fadeout{
-	0%{
-		opacity:1;
-	}
-	100%{
-		opacity:0;
-	}
-}
-
-@-ms-keyframes fadeout{
-	0%{
-		opacity:1;
-	}
-	100%{
-		opacity:0;
-	}
-}
-
-@-moz-keyframes fadeout{
-	0%{
-		opacity:1;
-	}
-	100%{
-		opacity:0;
-	}
-}
-
-@-webkit-keyframes fadeout{
-	0%{
-		opacity:1;
-	}
-	100%{
-		opacity:0;
+		opacity:1
 	}
 }
 
@@ -396,10 +284,6 @@ a:active{
 		width:56px;
 		height:56px;
 	}
-	.padding{padding:4px;}
-	.glowicki{font-size:32px;}
-	.sections{font-size:14px;}
-	.contacts{font-size:11px;}
 }
 
 @media all and (min-width:960px){
@@ -414,10 +298,6 @@ a:active{
 		width:48px;
 		height:48px;
 	}
-	.padding{padding:6px;}
-	.glowicki{font-size:40px;}
-	.sections{font-size:16px;}
-	.contacts{font-size:12px;}
 }
 
 @media all and (min-width:1280px){
@@ -432,10 +312,6 @@ a:active{
 		width:40px;
 		height:40px;
 	}
-	.padding{padding:8px;}
-	.glowicki{font-size:48px;}
-	.sections{font-size:18px;}
-	.contacts{font-size:13px;}
 }
 
 @media all and (min-width:1600px){
@@ -450,8 +326,4 @@ a:active{
 		width:32px;
 		height:32px;
 	}
-	.padding{padding:10px;}
-	.glowicki{font-size:56px;}
-	.sections{font-size:20px;}
-	.contacts{font-size:14px;}
 }
