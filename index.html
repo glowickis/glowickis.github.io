@@ -13,7 +13,7 @@
 		<!-- OVERLAY -->
 		<div id='overlay' class='overlay'>
 			<iframe id='iframe' name='iframe' class='iframe' scrolling='no' seamless allowfullscreen></iframe>
-			<svg id='button' class='button' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
+			<svg id='close' class='close' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
 				<rect id='background' width='32' height='32' style='opacity:0.75'/>
 				<polygon id='foreground' points='22 12 20 10 16 14 12 10 10 12 14 16 10 20 12 22 16 18 20 22 22 20 18 16 22 12' style='fill:#fff'/>
 			</svg>
@@ -620,9 +620,9 @@
 			(function(){
 				var overlay = document.getElementById('overlay');
 				var iframe = document.getElementById('iframe');
-				var button = document.getElementById('button');
+				var close = document.getElementById('close');
 				
-				if(overlay && iframe && button){
+				if(overlay && iframe && close){
 					inner_html();
 					
 					function inner_html(){
@@ -635,7 +635,7 @@
 						}
 					};
 					
-					button.onclick = function(e){
+					close.onclick = function(e){
 						overlay.style.display = 'none';
 						inner_html();
 					};
