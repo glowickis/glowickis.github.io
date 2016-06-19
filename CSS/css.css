@@ -6,3 +6,11 @@
   border:0;
   padding:0;
 }
+
+body{
+  background-image:url(../IMG/background.jpg);
+  background-attachment:fixed;
+  background-color:#005677;
+  background-position:center center;
+  background-repeat:no-repeat;
+}
