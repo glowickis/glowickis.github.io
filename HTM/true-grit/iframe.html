@@ -1,22 +1,31 @@
 <!DOCTYPE html><meta charset=UTF-8><meta content='width=device-width,initial-scale=1'name=viewport><link href=../../CSS/css.css rel=stylesheet>
 
 <!-- SCRIPTS -->
+<script src='retractable_min.js'></script>
+<script src='../../com/glowicki/Videoplayer_min.js'></script>
+<script src='../../com/glowicki/TweenIota_min.js'></script>
+<script src='../../com/glowicki/Canvas_min.js'></script>
+<script src='B64.js'></script>
 
 <div class=container><div class=content><div class=table><div class=tr><div class='td left'><div class=table><div class=tr><div class='padding table'><div class=tr><div class=td><span class='uppercased format f20'>
 
 <!-- NAME -->
+True Grit
 
 </span></div></div></div></div><div class=tr><div class=td><div class='padding table'><div class=tr><div class=td><span class='uppercased format f16 slashed'>
 
 <!-- DESIGN -->
+Interactive Design
 
 </span></div><div class=td><span class='uppercased format f16 slashed'>
 
 <!-- CLASS -->
+Rich Media
 
 </span></div><div class=td><span class='uppercased format f16'>
 
 <!-- ORDER -->
+Banner Ad
 
 </span></div></div></div></div></div><div class=tr><div class=td><div class=table><div class=tr>
 
@@ -27,13 +36,13 @@
 <div class='show'><div class='td'><div class=tr><span class='td padding icon'><img alt=Ai src=../../SVG/Ai.svg> </span><span class='td padding f14 format label'>Illustrator</span></div></div></div>
 
 <!-- DIRECTOR -->
-<div class='show'><div class='td'><div class=tr><span class='td padding icon'><img alt=Di src=../../SVG/Di.svg> </span><span class='td padding f14 format label'>Director</span></div></div></div>
+<div class='hide'><div class='td'><div class=tr><span class='td padding icon'><img alt=Di src=../../SVG/Di.svg> </span><span class='td padding f14 format label'>Director</span></div></div></div>
 
 <!-- FLASH -->
 <div class='show'><div class='td'><div class=tr><span class='td padding icon'><img alt=Fl src=../../SVG/Fl.svg> </span><span class='td padding f14 format label'>Flash</span></div></div></div>
 
 <!-- INDESIGN -->
-<div class='show'><div class='td'><div class=tr><span class='td padding icon'><img alt=Id src=../../SVG/Id.svg> </span><span class='td padding f14 format label'>InDesign</span></div></div></div>
+<div class='hide'><div class='td'><div class=tr><span class='td padding icon'><img alt=Id src=../../SVG/Id.svg> </span><span class='td padding f14 format label'>InDesign</span></div></div></div>
 
 <!-- PHOTOSHOP -->
 <div class='show'><div class='td'><div class=tr><span class='td padding icon'><img alt=Ps src=../../SVG/Ps.svg> </span><span class='td padding f14 format label'>Photoshop</span></div></div></div>
@@ -44,6 +53,7 @@
 </div></div></div></div></div></div><div class='td middle'><div class=line></div></div><div class='td right'><div class=table><div class=tr><div class=td><div class=table><div class=tr><div class=td><span class='padding format f18 uppercased'>
 
 <!-- NOTE -->
+Retractable Unit
 
 </span></div><div class=td>
 
@@ -66,7 +76,18 @@
 <div class='show pages'id=pages></div></div><div class=previews id=previews><img alt=''src=''class=preview id=preview><video class=video controls id=video></video>
 
 <!-- PREVIEW -->
+<div class='unit'>
 
+		<div id='placeholder'></div>
+		<script>
+			(function(glowicki){
+				
+				new glowicki.Retractable();
+				
+			})(window.top.glowicki = window.top.glowicki || new Object());
+		</script>
+
+</div>
 
 </div></div></div>
 
