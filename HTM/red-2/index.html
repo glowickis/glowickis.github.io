@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>RED 2 :: Video Takeover</title>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width,initial-scale=1.0' />
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				border:0;
+				outline:0;
+			}
+			html,body{
+				width:100%;
+				height:100%;
+			}
+			body{
+				font-size:100%;
+			}
+		</style>
+		<script src='../../com/glowicki/TweenNano_min.js'></script>
+		<script src='../../com/glowicki/Videoplayer_min.js'></script>
+		<script src='../../com/glowicki/videoskin_min.js'></script>
+		<script src='B64.js'></script>
+	</head>
+	<body>
+		<script>
+			(function(glowicki){
+				glowicki.videoskin = glowicki.videoskin || new Object();
+				var videoskin = glowicki.videoskin;
+				
+				videoskin.collapsed = videoskin.collapsed || new Object();
+				var collapsed = videoskin.collapsed;
+				
+				videoskin.expanded = videoskin.expanded || new Object();
+				var expanded = videoskin.expanded;
+				
+				var TweenNano = glowicki.TweenNano;
+				
+				//////////////////////////////////////////////////
+				// SETTINGS
+				//////////////////////////////////////////////////
+				
+				videoskin.settings = {
+					'src':'red-2-skin.mp4',
+					'hex':'#000000',
+					'page':'#808080',
+					'skin':'skin',
+					'title':'',
+					'trailer':'red-2-trailer.mp4',
+					'poster':'',
+					'buttons_invert':true,
+					'collapsed':300,
+					'width':960
+				};
+				
+				//////////////////////////////////////////////////
+				// SETUP
+				//////////////////////////////////////////////////
+				
+				videoskin.setup = function(){
+					//console.log('setup:', collapsed, expanded);
+					
+					videoskin.new_button('watch_trailer', expanded.button_label, expanded.button_hitbox);
+					expanded.watch_trailer.append_listener('click', videoskin.expand);
+					expanded.button_expand = expanded.watch_trailer;
+					
+					expanded.cast_willis.style.opacity = 0;
+					expanded.cast_malkovich.style.opacity = 0;
+					expanded.cast_parker.style.opacity = 0;
+					expanded.cast_zetajones.style.opacity = 0;
+					expanded.cast_lee.style.opacity = 0;
+					expanded.cast_hopkins.style.opacity = 0;
+					expanded.cast_mirren.style.opacity = 0;
+					
+					expanded.title.style.opacity = 0;
+					expanded.date.style.opacity = 0;
+					
+					expanded.watch_trailer.style.opacity = 0;
+					
+					collapsed.collapsed_willis.style.opacity = 0;
+					
+					collapsed.collapsed_parker.style.opacity = 0;
+					collapsed.collapsed_zetajones.style.opacity = 0;
+					collapsed.collapsed_hopkins.style.opacity = 0;
+					
+					collapsed.collapsed_malkovich.style.opacity = 0;
+					collapsed.collapsed_mirren.style.opacity = 0;
+					collapsed.collapsed_lee.style.opacity = 0;
+					
+					TweenNano(expanded.cast_willis, 0.5, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.0});
+					TweenNano(expanded.cast_malkovich, 0.5, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.1});
+					TweenNano(expanded.cast_parker, 0.5, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.2});
+					TweenNano(expanded.cast_zetajones, 0.5, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.3});
+					TweenNano(expanded.cast_lee, 0.5, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.4});
+					TweenNano(expanded.cast_hopkins, 0.5, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.5});
+					TweenNano(expanded.cast_mirren, 0.5, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.6});
+					
+					TweenNano(expanded.title, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.1});
+					TweenNano(expanded.date, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.2});
+					
+					videoskin.show();
+				};
+				
+				//////////////////////////////////////////////////
+				// SHOW
+				//////////////////////////////////////////////////
+				
+				videoskin.show = function(){
+					collapsed.container.style.visibility = 'visible';
+					expanded.container.style.visibility = 'visible';
+					
+					TweenNano(expanded.watch_trailer, 0.5, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.3});
+					
+					videoskin.skin();
+				};
+				
+				videoskin.skin = function(){				
+					if(glowicki.videoskin.state == 'collapsed'){
+						fade_in(collapsed.collapsed_willis, 0.0);
+						
+						fade_in(collapsed.collapsed_parker, 0.1);
+						fade_in(collapsed.collapsed_zetajones, 0.2);
+						fade_in(collapsed.collapsed_hopkins, 0.3);
+						
+						fade_in(collapsed.collapsed_malkovich, 0.1);
+						fade_in(collapsed.collapsed_mirren, 0.2);
+						fade_in(collapsed.collapsed_lee, 0.3);
+					}
+				};
+				
+				function fade_in(element, delay){
+					var _delay = 0;
+					element.style.opacity = 0;
+					clearInterval(element.set_interval);
+					element.set_interval = setInterval(function(){
+						if(_delay != -1){
+							if(_delay + 1 < Math.floor(delay*(1000/30))){
+								_delay = _delay + 1;
+							}else{
+								_delay = -1;
+							}
+						}else{
+							var opacity = parseFloat(element.style.opacity);
+							if(opacity + 0.1 < 1){
+								opacity = opacity + 0.1;
+							}else{
+								opacity = 1;
+							}
+							element.style.opacity = opacity.toFixed(1);
+							if(opacity == 1){
+								clearInterval(element.set_interval);
+							}
+						}
+					},1000/30);
+				};
+				
+				//////////////////////////////////////////////////
+				// HIDE
+				//////////////////////////////////////////////////
+				
+				videoskin.hide = function(){
+					collapsed.container.style.visibility = 'hidden';
+					
+					collapsed.collapsed_willis.style.opacity = 0;
+					
+					collapsed.collapsed_parker.style.opacity = 0;
+					collapsed.collapsed_zetajones.style.opacity = 0;
+					collapsed.collapsed_hopkins.style.opacity = 0;
+					
+					collapsed.collapsed_malkovich.style.opacity = 0;
+					collapsed.collapsed_mirren.style.opacity = 0;
+					collapsed.collapsed_lee.style.opacity = 0;
+				};
+				
+				//////////////////////////////////////////////////
+				// TAKEOVER
+				//////////////////////////////////////////////////
+				
+				new glowicki.Videoskin();
+				
+				//console.log('glowicki', glowicki);
+				
+			})(window.top.glowicki = window.top.glowicki || new Object());
+		</script>
+	</body>
+</html>

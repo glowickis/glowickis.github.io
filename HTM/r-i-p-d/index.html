@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>R.I.P.D. :: Rumble Page</title>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width,initial-scale=1.0' />
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				border:0;
+				outline:0;
+			}
+			html,body{
+				width:100%;
+				height:100%;
+				background-color:#000000;
+			}
+			body{
+				font-size:100%;
+			}
+		</style>
+		<script src='../../com/glowicki/rumble_min.js'></script>
+		<script src='B64.js'></script>
+	</head>
+	<body>
+		<script>
+			(function(glowicki){
+				glowicki.endframe = glowicki.endframe || new Object();
+				var endframe = glowicki.endframe;
+				
+				glowicki.TweenNano = glowicki.TweenNano || new Object();
+				var TweenNano = glowicki.TweenNano;
+				
+				//////////////////////////////////////////////////
+				// SETTINGS
+				//////////////////////////////////////////////////
+				
+				glowicki.settings = {
+					'src':'r-i-p-d.mp4',
+					'hex':'#0C0C0C',
+					/* CONTENT */
+					'background_tile':'',
+					'background_skin':'background_skin',
+					/* ENDFRAME */
+					'background_endframe':'background_endframe',
+					/* FOOTER */
+					'background_footer':'background_footer',
+					'footer':'footer'
+				};
+				
+				//////////////////////////////////////////////////
+				// SETUP
+				//////////////////////////////////////////////////
+				
+				glowicki.setup = function(){
+					//console.log(glowicki);
+					
+					append_listener(endframe.button_replay, 'mouseover', function(e){
+						e.target.style.cursor = 'pointer';
+						e.target.style.opacity = 1.00;
+						TweenNano(endframe.button_replay, 0.5, {rotate:0}, {rotate:-360});
+					});
+					append_listener(endframe.button_replay, 'mouseout', function(e){
+						e.target.style.opacity = 0.75;
+						e.target.style.cursor = 'auto';
+					});
+					append_listener(endframe.button_replay, 'click', glowicki.replay);
+
+					
+					endframe.title_ripd.style.opacity = 0;
+					endframe.title_subtitle.style.opacity = 0;
+					
+					endframe.button_replay.style.opacity = 0;
+					
+					endframe.tagline.style.opacity = 0;
+					endframe.date.style.opacity = 0;
+					
+					endframe.button_facebook.style.opacity = 0;
+					endframe.button_twitter.style.opacity = 0;
+					
+					//endframe.container.style.opacity = 1;
+					//glowicki.show();
+				};
+				
+				//////////////////////////////////////////////////
+				// SHOW
+				//////////////////////////////////////////////////
+				
+				glowicki.show = function(){
+					TweenNano(endframe.title_ripd, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.0});
+					TweenNano(endframe.title_subtitle, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.1});
+					
+					TweenNano(endframe.button_replay, 1, {opacity:0, scale:0}, {opacity:0.75, scale:1}, {delay:0.2});
+					
+					TweenNano(endframe.tagline, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.3});
+					TweenNano(endframe.date, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.4});
+					
+					TweenNano(endframe.button_facebook, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.5});
+					TweenNano(endframe.button_twitter, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.6});
+				};
+				
+				//////////////////////////////////////////////////
+				// HIDE
+				//////////////////////////////////////////////////
+				
+				glowicki.hide = function(){
+					endframe.title_ripd.style.opacity = 0;
+					endframe.title_subtitle.style.opacity = 0;
+					
+					endframe.button_replay.style.opacity = 0;
+					
+					endframe.tagline.style.opacity = 0;
+					endframe.date.style.opacity = 0;
+					
+					endframe.button_facebook.style.opacity = 0;
+					endframe.button_twitter.style.opacity = 0;
+				};
+				
+				//////////////////////////////////////////////////
+				// RUMBLE
+				//////////////////////////////////////////////////
+				
+				var Rumble = glowicki.Rumble;
+				
+				var rumble = new Rumble();
+				
+			})(window.top.glowicki = window.top.glowicki || new Object());
+		</script>
+	</body>
+</html>

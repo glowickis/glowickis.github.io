@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Django Unchained :: Rumble Page</title>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width,initial-scale=1.0' />
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				border:0;
+				outline:0;
+			}
+			html,body{
+				width:100%;
+				height:100%;
+				background-color:#000000;
+			}
+			body{
+				font-size:100%;
+			}
+		</style>
+		<script src='../../com/glowicki/rumble_min.js'></script>
+		<script src='B64.js'></script>
+	</head>
+	<body>
+		<script>
+			(function(glowicki){
+				glowicki.endframe = glowicki.endframe || new Object();
+				var endframe = glowicki.endframe;
+				
+				glowicki.TweenNano = glowicki.TweenNano || new Object();
+				var TweenNano = glowicki.TweenNano;
+				
+				//////////////////////////////////////////////////
+				// SETTINGS
+				//////////////////////////////////////////////////
+				
+				glowicki.settings = {
+					'src':'django-unchained.mp4',
+					'hex':'#000000',
+					/* CONTENT */
+					'background_tile':'',
+					'background_skin':'background_skin',
+					/* ENDFRAME */
+					'background_endframe':'background_endframe',
+					/* FOOTER */
+					'background_footer':'background_footer',
+					'footer':'footer'
+				};
+				
+				//////////////////////////////////////////////////
+				// SETUP
+				//////////////////////////////////////////////////
+				
+				glowicki.setup = function(){
+					//console.log(glowicki);
+					
+					endframe.cast_foxx.style.opacity = 0;
+					endframe.cast_waltz.style.opacity = 0;
+					endframe.cast_dicaprio.style.opacity = 0;
+					endframe.cast_washington.style.opacity = 0;
+					endframe.cast_and.style.opacity = 0;
+					endframe.cast_jackson.style.opacity = 0;
+					
+					endframe.text_film.style.opacity = 0;
+					endframe.text_tarantino.style.opacity = 0;
+					endframe.date_dec.style.opacity = 0;
+					
+					endframe.title_D.style.opacity = 0;
+					endframe.title_J.style.opacity = 0;
+					endframe.title_A.style.opacity = 0;
+					endframe.title_N.style.opacity = 0;
+					endframe.title_G.style.opacity = 0;
+					endframe.title_O.style.opacity = 0;
+					endframe.title_unchained.style.opacity = 0;
+					
+					append_listener(endframe.button_replay, 'mouseover', function(e){
+						e.target.style.cursor = 'pointer';
+						e.target.style.opacity = 1.00;
+						TweenNano(endframe.button_replay, 0.5, {rotate:0}, {rotate:-360});
+					});
+					append_listener(endframe.button_replay, 'mouseout', function(e){
+						e.target.style.opacity = 0.75;
+						e.target.style.cursor = 'auto';
+					});
+					append_listener(endframe.button_replay, 'click', glowicki.replay);
+					endframe.button_replay.style.opacity = 0;
+					
+					new_button('tickets_showtimes', endframe.button_label, endframe.button_hitbox);
+					endframe.tickets_showtimes.style.opacity = 0;
+					
+					endframe.button_facebook.style.opacity = 0;
+					endframe.button_twitter.style.opacity = 0;
+					endframe.button_youtube.style.opacity = 0;
+					
+					//endframe.container.style.opacity = 1;
+					//glowicki.show();
+				};
+				
+				//////////////////////////////////////////////////
+				// SHOW
+				//////////////////////////////////////////////////
+				
+				glowicki.show = function(){
+					TweenNano(endframe.cast_foxx, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.0});
+					TweenNano(endframe.cast_waltz, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.0});
+					TweenNano(endframe.cast_dicaprio, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.0});
+					TweenNano(endframe.cast_washington, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.0});
+					TweenNano(endframe.cast_and, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.0});
+					TweenNano(endframe.cast_jackson, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.0});
+					
+					TweenNano(endframe.text_film, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.1});
+					TweenNano(endframe.text_tarantino, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.2});
+					TweenNano(endframe.date_dec, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.3});
+					
+					TweenNano(endframe.title_D, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.2});
+					TweenNano(endframe.title_J, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.2});
+					TweenNano(endframe.title_A, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.2});
+					TweenNano(endframe.title_N, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.2});
+					TweenNano(endframe.title_G, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.2});
+					TweenNano(endframe.title_O, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.2});
+					TweenNano(endframe.title_unchained, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.3});
+					
+					TweenNano(endframe.button_replay, 1, {opacity:0, scale:0}, {opacity:0.75, scale:1}, {delay:0.3});
+					
+					TweenNano(endframe.tickets_showtimes, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.4});
+					TweenNano(endframe.button_facebook, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.5});
+					TweenNano(endframe.button_twitter, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.6});
+					TweenNano(endframe.button_youtube, 1, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.7});
+				};
+				
+				//////////////////////////////////////////////////
+				// HIDE
+				//////////////////////////////////////////////////
+				
+				glowicki.hide = function(){
+					endframe.cast_foxx.style.opacity = 0;
+					endframe.cast_waltz.style.opacity = 0;
+					endframe.cast_dicaprio.style.opacity = 0;
+					endframe.cast_washington.style.opacity = 0;
+					endframe.cast_and.style.opacity = 0;
+					endframe.cast_jackson.style.opacity = 0;
+					
+					endframe.text_film.style.opacity = 0;
+					endframe.text_tarantino.style.opacity = 0;
+					endframe.date_dec.style.opacity = 0;
+					
+					endframe.title_D.style.opacity = 0;
+					endframe.title_J.style.opacity = 0;
+					endframe.title_A.style.opacity = 0;
+					endframe.title_N.style.opacity = 0;
+					endframe.title_G.style.opacity = 0;
+					endframe.title_O.style.opacity = 0;
+					endframe.title_unchained.style.opacity = 0;
+					
+					endframe.button_replay.style.opacity = 0;
+					
+					endframe.tickets_showtimes.style.opacity = 0;
+					
+					endframe.button_facebook.style.opacity = 0;
+					endframe.button_twitter.style.opacity = 0;
+					endframe.button_youtube.style.opacity = 0;
+				};
+				
+				//////////////////////////////////////////////////
+				// RUMBLE
+				//////////////////////////////////////////////////
+				
+				var Rumble = glowicki.Rumble;
+				
+				var rumble = new Rumble();
+				
+			})(window.top.glowicki = window.top.glowicki || new Object());
+		</script>
+	</body>
+</html>

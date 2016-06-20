@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Oblivion :: Animated Takeover</title>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width,initial-scale=1.0' />
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				border:0;
+				outline:0;
+			}
+			html,body{
+				width:100%;
+				height:100%;
+			}
+			body{
+				font-size:100%;
+			}
+		</style>
+		<script src='../../com/glowicki/TweenNano_min.js'></script>
+		<script src='../../com/glowicki/Videoplayer_min.js'></script>
+		<script src='../../com/glowicki/takeover_min.js'></script>
+		<script src='B64.js'></script>
+	</head>
+	<body>
+		<script>
+			(function(glowicki){
+				glowicki.takeover = glowicki.takeover || new Object();
+				var takeover = glowicki.takeover;
+				
+				takeover.collapsed = takeover.collapsed || new Object();
+				var collapsed = takeover.collapsed;
+				
+				var TweenNano = glowicki.TweenNano;
+				
+				//////////////////////////////////////////////////
+				// SETTINGS
+				//////////////////////////////////////////////////
+				
+				takeover.settings = {
+					/* intro | overlay | rumble | video */
+					'takeover':'overlay',
+					'src':'oblivion-intro.mp4',
+					'hex':'#000000',
+					'page':'#797979',
+					'skin':'skin',
+					'title':'Oblivion - Trailer',
+					'trailer':'oblivion-trailer.mp4',
+					'poster':'oblivion-trailer.jpg',
+					'takeover_top':true,
+					'buttons_invert':true,
+					'collapsed':65,
+					'expanded':496,
+					'width':1200
+				};
+				
+				//////////////////////////////////////////////////
+				// SETUP
+				//////////////////////////////////////////////////
+				
+				takeover.setup = function(){
+					//console.log('setup:', collapsed);
+					
+					takeover.new_button('watch_trailer', collapsed.button_label, collapsed.button_hitbox);
+					collapsed.watch_trailer.append_listener('click', takeover.expand);
+					collapsed.button_expand = collapsed.watch_trailer;
+					
+					collapsed.cast_tom.style.opacity = 0;
+					collapsed.cast_cruise.style.opacity = 0;
+					
+					collapsed.cast_morgan.style.opacity = 0;
+					collapsed.cast_freeman.style.opacity = 0;
+					
+					collapsed.title_O_blivion.style.opacity = 0;
+					collapsed.title_o_B_livion.style.opacity = 0;
+					collapsed.title_ob_L_ivion.style.opacity = 0;
+					collapsed.title_obl_I_vion.style.opacity = 0;
+					collapsed.title_obli_V_ion.style.opacity = 0;
+					collapsed.title_obliv_I_on.style.opacity = 0;
+					collapsed.title_oblivi_O_n.style.opacity = 0;
+					collapsed.title_oblivio_N.style.opacity = 0;
+					
+					collapsed.text_imax.style.opacity = 0;
+					collapsed.text_date.style.opacity = 0;
+					
+					collapsed.watch_trailer.style.opacity = 0;
+					
+					takeover.show();
+				};
+				
+				//////////////////////////////////////////////////
+				// SHOW
+				//////////////////////////////////////////////////
+				
+				takeover.show = function(){
+					collapsed.container.style.visibility = 'visible';
+					
+					TweenNano(collapsed.cast_tom, 1, {opacity:0, translateX:-10}, {opacity:1, translateX:0}, {delay:0.0});
+					TweenNano(collapsed.cast_cruise, 1, {opacity:0, translateX:20}, {opacity:1, translateX:10}, {delay:0.0});
+					
+					TweenNano(collapsed.cast_morgan, 1, {opacity:0}, {opacity:1}, {delay:0.1});
+					TweenNano(collapsed.cast_freeman, 1, {opacity:0}, {opacity:1}, {delay:0.1});
+					
+					TweenNano(collapsed.title_O_blivion, 1, {opacity:0, rotate:-360}, {opacity:1, rotate:0}, {delay:0.2});
+					TweenNano(collapsed.title_o_B_livion, 1, {opacity:0}, {opacity:1}, {delay:0.2});
+					TweenNano(collapsed.title_ob_L_ivion, 1, {opacity:0}, {opacity:1}, {delay:0.2});
+					TweenNano(collapsed.title_obl_I_vion, 1, {opacity:0}, {opacity:1}, {delay:0.2});
+					TweenNano(collapsed.title_obli_V_ion, 1, {opacity:0}, {opacity:1}, {delay:0.2});
+					TweenNano(collapsed.title_obliv_I_on, 1, {opacity:0}, {opacity:1}, {delay:0.2});
+					TweenNano(collapsed.title_oblivi_O_n, 1, {opacity:0, rotate:360}, {opacity:1, rotate:0}, {delay:0.2});
+					TweenNano(collapsed.title_oblivio_N, 1, {opacity:0}, {opacity:1}, {delay:0.2});
+					
+					TweenNano(collapsed.text_imax, 1, {opacity:0, translateX:-10}, {opacity:1, translateX:0}, {delay:0.3});
+					TweenNano(collapsed.text_date, 1, {opacity:0, translateX:20}, {opacity:1, translateX:10}, {delay:0.4});
+					
+					TweenNano(collapsed.watch_trailer, 1, {opacity:0}, {opacity:1}, {delay:0.5});
+				};
+				
+				//////////////////////////////////////////////////
+				// TAKEOVER
+				//////////////////////////////////////////////////
+				
+				new glowicki.Takeover();
+				
+				//console.log('glowicki', glowicki);
+				
+			})(window.top.glowicki = window.top.glowicki || new Object());
+		</script>
+	</body>
+</html>

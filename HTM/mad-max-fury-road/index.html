@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Mad Max - Fury Road :: Rumble Takeover</title>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width,initial-scale=1.0' />
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				border:0;
+				outline:0;
+			}
+			html,body{
+				width:100%;
+				height:100%;
+			}
+			body{
+				font-size:100%;
+			}
+		</style>
+		<script src='../../com/glowicki/TweenNano_min.js'></script>
+		<script src='../../com/glowicki/Videoplayer_min.js'></script>
+		<script src='../../com/glowicki/takeover_min.js'></script>
+		<script src='B64.js'></script>
+	</head>
+	<body>
+		<script>
+			(function(glowicki){
+				glowicki.takeover = glowicki.takeover || new Object();
+				var takeover = glowicki.takeover;
+				
+				takeover.collapsed = takeover.collapsed || new Object();
+				var collapsed = takeover.collapsed;
+				
+				var TweenNano = glowicki.TweenNano;
+				
+				//////////////////////////////////////////////////
+				// SETTINGS
+				//////////////////////////////////////////////////
+				
+				takeover.settings = {
+					/* intro | overlay | rumble | video */
+					'takeover':'overlay',
+					'src':'mad-max-fury-road-intro.mp4',
+					'hex':'#0E0E0E',
+					'page':'#797979',
+					'skin':'skin',
+					'title':'Mad Max - Fury Road - Trailer',
+					'trailer':'mad-max-fury-road-trailer.mp4',
+					'poster':'mad-max-fury-road-trailer.jpg',
+					'takeover_top':true,
+					'buttons_invert':true,
+					'collapsed':65,
+					'expanded':500,
+					'width':1200
+				};
+				
+				//////////////////////////////////////////////////
+				// SETUP
+				//////////////////////////////////////////////////
+				
+				takeover.setup = function(){
+					//console.log('setup:', collapsed);
+					
+					takeover.new_button('watch_trailer', collapsed.button_label, collapsed.button_hitbox);
+					collapsed.watch_trailer.append_listener('click', takeover.expand);
+					collapsed.button_expand = collapsed.watch_trailer;
+					
+					collapsed.tagline_what.style.opacity = 0;
+					collapsed.tagline_a.style.opacity = 0;
+					collapsed.tagline_lovely.style.opacity = 0;
+					collapsed.tagline_day.style.opacity = 0;
+					
+					collapsed.title_mad.style.opacity = 0;
+					collapsed.title_max.style.opacity = 0;
+					collapsed.title_fury.style.opacity = 0;
+					collapsed.title_road.style.opacity = 0;
+					
+					collapsed.text_only.style.opacity = 0;
+					collapsed.text_the.style.opacity = 0;
+					collapsed.text_mad.style.opacity = 0;
+					collapsed.text_survive.style.opacity = 0;
+					
+					collapsed.watch_trailer.style.opacity = 0;
+					
+					collapsed.year_2015.style.opacity = 0;
+					
+					takeover.show();
+				};
+				
+				//////////////////////////////////////////////////
+				// SHOW
+				//////////////////////////////////////////////////
+				
+				takeover.show = function(){
+					collapsed.container.style.visibility = 'visible';
+					
+					TweenNano(collapsed.tagline_what, 0.25, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.0});
+					TweenNano(collapsed.tagline_a, 0.25, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.1});
+					TweenNano(collapsed.tagline_lovely, 0.25, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.2});
+					TweenNano(collapsed.tagline_day, 0.25, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.3});
+					
+					TweenNano(collapsed.title_mad, 0.25, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.2});
+					TweenNano(collapsed.title_max, 0.25, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.3});
+					TweenNano(collapsed.title_fury, 0.25, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.4});
+					TweenNano(collapsed.title_road, 0.25, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.5});
+					
+					TweenNano(collapsed.text_only, 0.25, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.3});
+					TweenNano(collapsed.text_the, 0.25, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.4});
+					TweenNano(collapsed.text_mad, 0.25, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.5});
+					TweenNano(collapsed.text_survive, 0.25, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.6});
+					
+					TweenNano(collapsed.watch_trailer, 0.25, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.4});
+					
+					TweenNano(collapsed.year_2015, 0.25, {opacity:0, scale:0}, {opacity:1, scale:1}, {delay:0.5});
+				};
+				
+				//////////////////////////////////////////////////
+				// TAKEOVER
+				//////////////////////////////////////////////////
+				
+				new glowicki.Takeover();
+				
+				//console.log('glowicki', glowicki);
+				
+			})(window.top.glowicki = window.top.glowicki || new Object());
+		</script>
+	</body>
+</html>
