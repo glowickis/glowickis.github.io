@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<title>AMC</title> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+              
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.js"></script> 
+        <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.18.5_23b0de6da0ee295131e32a500470610c_min.js" type="text/javascript"></script>
+        <script src="https://s0.2mdn.net/ads/studio/cached_libs/timelinemax_1.18.5_f45d6c8dddb03033bed63bfe57d69df3_min.js" type="text/javascript"></script>  
+        <script src="https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_1.18.5_6bbddbd910e8bfac4e19220fe52e1af6_min.js" type="text/javascript"></script>
+        <script src="https://s0.2mdn.net/ads/studio/cached_libs/easepack_1.18.5_4405b7326844d606cf693d06af83ddfd_min.js" type="text/javascript"></script>  
+        
+    	<style type="text/css">
+    		body{
+    			background-color:#000;
+    		}
+    		
+	    	#loadingMask{
+	    		z-index:900;
+	    		position: absolute;
+	    		background-color: #000;
+	    		top: 0px;
+	    		left: 0px;
+	    		visibility: visible;
+	    	}
+	    	#container{            
+	            z-index:1;
+	            position: absolute;
+	            background-color: #000000;
+	            top: 0px;
+	            left: 0px;
+	            margin: auto;
+	            visibility: hidden; 
+	            overflow: hidden;
+	            cursor: pointer; cursor: hand;           
+	        }
+	        .unit-size{
+	        	width: 970px;
+	        	height: 250px;        	
+	        }	
+
+	        
+
+    	</style>
+
+    	<script language="javascript">
+    		
+    		if (Enabler.isInitialized()) {
+            init();
+            } else {
+                Enabler.addEventListener(studio.events.StudioEvent.INIT, init);
+            }
+            //Run when Enabler is ready
+            function init(){            
+                
+                if(Enabler.isPageLoaded()){
+                    politeInit();
+                }else{
+                    Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED, politeInit);
+                } 
+            }
+            
+            function politeInit(){      
+                //Load in Javascript
+                var extJavascript = document.createElement('script');
+                extJavascript.setAttribute('type', 'text/javascript');
+                extJavascript.setAttribute('src', Enabler.getUrl('script.js')); 
+                document.getElementsByTagName('head')[0].appendChild(extJavascript);            
+                
+                //Load in CSS
+                var extCSS=document.createElement('link');
+                extCSS.setAttribute("rel", "stylesheet");
+                extCSS.setAttribute("type", "text/css");
+                extCSS.setAttribute("href", Enabler.getUrl("style.css")); 
+                document.getElementsByTagName("head")[0].appendChild(extCSS);
+                document.getElementById("container").style.visibility = 'visible';
+                
+            }       
+
+    	</script>
+
+
+    </head>
+    
+    <body>
+        
+        
+        <div id="container" class="unit-size">
+        
+            <div id="border" class="unit-size"></div>
+            <button id="background_exit"></button> 
+            <div id="loadingMask" class="unit-size"></div>
+            <!-- Intro Video-->
+
+            <video id="intro_video" muted> 
+                    <source id="intro_vidSource_mp4" type="video/mp4" src="" />          
+                        
+            </video> 
+
+            
+            <div id="videoContainer">
+                <!-- User Video-->
+
+                <!-- Video Controls -->
+                
+                <div id="video_controls">
+                    <input type="range" id="seekBar" value="0">
+                    <div id="vid_play" class="video-controls"></div>
+                    <div id="vid_pause" class="video-controls"></div>
+                    <div id="vid_sound" class="video-controls"></div>
+                    <div id="vid_mute" class="video-controls"></div>
+                    
+                    <div id="progressBar" class="scrubber">
+                        <div class="progress-bar">
+                            <div class="progress">
+                                <span class="bufferBar"></span>
+                                <span class="timeBar"></span>
+                            </div>
+                        </div>
+                    </div>  
+                
+                </div>
+        
+                <video id="user_video"> 
+                    <source id="user_vidSource_mp4" type="video/mp4" src="" />         
+                        
+                </video> 
+            </div>
+            
+       
+
+            <!-- INTRO Elements -->
+            <!--
+            <video id="end_video" muted> 
+                    <source id="end_vidSource_mp4" type="video/mp4" src="" />            
+            </video> 
+            -->
+            <!-- User Panel-->
+
+            <div id="user_panel" class="unit-size">
+                
+                
+               
+            </div>
+            
+            <!-- END PANEL -->
+            
+            <div id="resolve_fadeout"               class="unit-size"></div>
+            <div id="img_titleTreatment"    class="unit-size"></div>
+            <div id="img_text_fyc"          class="unit-size"></div>
+            <!--<div id="end_logo"              class="unit-size"></div>-->
+
+            <div id="resolve_art"                   class=""></div>
+            <div id="resolve_quote"                 class="unit-size"></div>
+            <div id="resolve_background"            class="unit-size"></div>
+            <!-- BUTTONS -->
+            <div id="introSkip_btn" class="unit-size"></div>
+            <div id="close_btn"></div>
+            <div id="replay_btn"></div>     
+            
+            
+
+        </div>
+
+      
+    </body>
+
+    <script language="javascript">
+
+            //var clickTag            = "";
+            
+            var background_exit    = document.getElementById('background_exit');
+            
+            background_exit.addEventListener('click', enhancedBannerClickOut, false);
+           
+            user_video.addEventListener('click', enhancedBannerClickOut, false);
+            
+            function enhancedBannerClickOut(){
+
+                hideIntroPanel();
+                hideUserPanel();
+                showEndPanel();
+                showNoAnimation();
+                //window.open(window.clickTag, '_blank');
+                Enabler.exit('Background_Clickthrough');
+
+            }
+
+    </script>
+    
+</html>
