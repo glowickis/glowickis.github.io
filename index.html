@@ -738,6 +738,11 @@
 		
 		<!-- HEADER -->
 		<div class='header'>
+			<div class='padding autoplay'>
+				<a id='AUTOPLAY' class='contacts' href='' target='_blank'>
+					Allow Video Auto-Play
+				</a>
+			</div>
 			<div class='bottomed' style='width:100%;'>
 				<div class='padding glowicki'>GLOWICKI</div>
 				<!--<div class='sections'>Reel</div>-->
@@ -751,30 +756,63 @@
 		</div>
 		
 		<script>
-			(function(){
-				var overlay = document.getElementById('overlay');
-				var iframe = document.getElementById('iframe');
-				var close = document.getElementById('close');
-				
-				if(overlay && iframe && close){
-					inner_html();
-					
-					function inner_html(){
-						iframe.contentWindow.document.body.innerHTML = '';
-					};
-					
-					iframe.onload = function(e){
-						if(e.target.contentWindow.document.body.innerHTML != ''){
-							overlay.style.display = 'block';
-						}
-					};
-					
-					close.onclick = function(e){
-						overlay.style.display = 'none';
-						inner_html();
-					};
-				}
-			})();
+(function(){
+	var overlay = document.getElementById('overlay');
+	var iframe = document.getElementById('iframe');
+	var close = document.getElementById('close');
+	
+	if(overlay && iframe && close){
+		inner_html();
+		
+		function inner_html(){
+			iframe.contentWindow.document.body.innerHTML = '';
+		};
+		
+		iframe.onload = function(e){
+			if(e.target.contentWindow.document.body.innerHTML != ''){
+				overlay.style.display = 'block';
+			}
+		};
+		
+		close.onclick = function(e){
+			overlay.style.display = 'none';
+			inner_html();
+		};
+	}
+	
+	/* AUTO-PLAY */
+	
+	var _userAgent = window.navigator.userAgent.toLowerCase();
+	
+	var _browser;
+	var _space = ' ';
+	switch(true){
+		case(_userAgent.indexOf('firefox') > -1):
+			_browser = 'firefox';
+			break;
+		case(_userAgent.indexOf('edg') > -1):
+			_browser = 'edge';
+			break;
+		case(_userAgent.indexOf('opr') > -1):
+			_browser = 'opera';
+			break;
+		case(_userAgent.indexOf('chrome') > -1):
+			_browser = 'chrome';
+			break;
+		case(_userAgent.indexOf('safari') > -1):
+			_browser = 'safari';
+			break;
+		default:
+			_browser = _space = '';
+			break;
+	};
+	
+	var _http = 'https://www.google.com/search?q=';
+	
+	var _query = _browser + _space + 'allow video autoplay';
+	
+	document.getElementById('AUTOPLAY').href = _http + encodeURIComponent(_query);
+})();
 		</script>
 	</body>
 </html>
