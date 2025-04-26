@@ -28,6 +28,18 @@
 			<!-- CONTENT -->
 			<div class='content padded fadein'>
 				
+				<!-- APPLE -->
+				<div class='design padding'>Apple</div>
+				
+				<!-- Freelance Design -->
+				<div class='order padding'>Production Design</div>
+				
+				<a href='mailto:glowicki@mac.com?subject=Apple%20Examples%20Request&body=Company%20Name:%20%5BREQUIRED%5D%0A%0DContact%20Name:%20%5BIf%20different%20from%20sender%5D%0A%0DContact%20Email:%20%5BIf%20different%20from%20sender%5D%0A%0DContact%20Title:%20%5BREQUIRED%5D'>
+					<div class='apple'>
+						<img class='image' src='JPG/apple.jpg'>
+					</div>
+				</a>
+				
 				<!-- INTERACTIVE -->
 				<div class='design padding'>Interactive Design</div>
 				
@@ -738,25 +750,20 @@
 		
 		<!-- HEADER -->
 		<div class='header'>
-			<div class='padding autoplay' style='position:absolute;top:10px;right:10px;opacity:0.5;'>
-				<a id='AUTOPLAY' class='contacts' href='' target='_blank'>
-					Allow Video Auto-Play
-				</a>
-			</div>
 			<div class='bottomed' style='width:100%;'>
 				<div class='padding glowicki'>GLOWICKI</div>
 				<!--<div class='sections'>Reel</div>-->
 				<div class='padding sections'>Portfolio</div>
 				<div class='padding sections resume'>
 					<a class='sections' href='PDF/glowicki_resume.pdf' target='_blank'>
-						Resume
+						Résumé
 					</a>
 				</div>
 			</div>
 		</div>
 		
 		<script>
-(function(){
+(function(_top){
 	var overlay = document.getElementById('overlay');
 	var iframe = document.getElementById('iframe');
 	var close = document.getElementById('close');
@@ -782,37 +789,37 @@
 	
 	/* AUTO-PLAY */
 	
-	var _userAgent = window.navigator.userAgent.toLowerCase();
+	_top._userAgent = window.navigator.userAgent.toLowerCase();
 	
-	var _browser;
-	var _space = ' ';
+	_top._browser;
+	_top._space = ' ';
 	switch(true){
 		case(_userAgent.indexOf('firefox') > -1):
-			_browser = 'firefox';
+			_top._browser = 'firefox';
 			break;
 		case(_userAgent.indexOf('edg') > -1):
-			_browser = 'edge';
+			_top._browser = 'edge';
 			break;
 		case(_userAgent.indexOf('opr') > -1):
-			_browser = 'opera';
+			_top._browser = 'opera';
 			break;
 		case(_userAgent.indexOf('chrome') > -1):
-			_browser = 'chrome';
+			_top._browser = 'chrome';
 			break;
 		case(_userAgent.indexOf('safari') > -1):
-			_browser = 'safari';
+			_top._browser = 'safari';
 			break;
 		default:
-			_browser = _space = '';
+			_top._browser = _space = '';
 			break;
 	};
 	
-	var _http = 'https://www.google.com/search?q=';
+	_top._http = 'https://www.google.com/search?q=';
 	
-	var _query = _browser + _space + 'allow video autoplay';
+	_top._query = _top._browser + _top._space + 'allow video autoplay';
 	
-	document.getElementById('AUTOPLAY').href = _http + encodeURIComponent(_query);
-})();
+	document.getElementById('AUTOPLAY').href = _top._http + encodeURIComponent(_top._query);
+})(window.top);
 		</script>
 	</body>
 </html>
