@@ -58,7 +58,11 @@
 	let _userAgent = window.navigator.userAgent;
 	
 	let _browser = 'unknown';
-	if(_userAgent.indexOf('Edg') > -1){
+	}if(_userAgent.indexOf('Opera') > -1 || _userAgent.indexOf('OPR') > -1){
+		_browser = 'opera';
+	}else if(_userAgent.indexOf('Trident') > -1 || _userAgent.indexOf('MSIE') > -1){
+		_browser = 'explorer';
+	}else if(_userAgent.indexOf('Edg') > -1){
 		_browser = 'edge'
 	}else if(_userAgent.indexOf('Chrome') > -1){
 		_browser = 'chrome';
@@ -66,10 +70,6 @@
 		_browser = 'firefox';
 	}else if(_userAgent.indexOf('Safari') > -1){
 		_browser = 'safari';
-	}else if(_userAgent.indexOf('Opera') > -1 || _userAgent.indexOf('OPR') > -1){
-		_browser = 'opera';
-	}else if(_userAgent.indexOf('Trident') > -1 || _userAgent.indexOf('MSIE') > -1){
-		_browser = 'explorer';
 	}
 	
 	type_key_val(typeof(_platform), 'platform', _platform);
