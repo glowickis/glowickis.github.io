@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>AUDIO</title>
+		<link rel='shortcut icon' href='https://glowickis.github.io/favicon.ico' type='image/x-icon'>
+		<style>
+			*{
+				margin:10;
+				padding:0;
+				border:0;
+			}
+			html,body{
+				width:100%;
+				height:100%;
+				font-family:sans-serif;
+				font-size:10pt;
+				line-height:12pt;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+(function(){
+	let _object = new Object();
+	
+	let _tag = 'video';
+	
+	let _html = '';
+	let _tsv = '';
+	
+	/* DIV */
+	let _div = document.createElement('div');
+	_div.style.display = 'none';
+	document.body.appendChild(_div);
+	
+	_object['div'] = new Array();
+	
+	for(let _key in _div){
+		_object.div.push(_key);
+	}
+	
+	/* ELEMENT */
+	let _element = document.createElement(_tag);
+	_element.style.display = 'none';
+	document.body.appendChild(_element);
+	
+	_object['element'] = new Array();
+	
+	function type_key_val(_type, _key, _val){
+		_html += '</br>' + _key + ':' + _type + ' = ' + _val;
+		_tsv += '\n' + _type + '\t' + _key + '\t' + _val;
+	}
+	
+	_html = 'KEY:TYPE = VAL';
+	_tsv = 'TYPE' + '\t' + 'KEY' + '\t' + 'VAL';
+	
+	let _platform = window.navigator.platform;
+	let _userAgent = window.navigator.userAgent;
+	
+	let _browser = 'unknown';
+	if(_userAgent.indexOf('Edg') > -1){
+		_browser = 'edge'
+	}else if(_userAgent.indexOf('Chrome') > -1){
+		_browser = 'chrome';
+	}else if(_userAgent.indexOf('Firefox') > -1){
+		_browser = 'firefox';
+	}else if(_userAgent.indexOf('Safari') > -1){
+		_browser = 'safari';
+	}else if(_userAgent.indexOf('Opera') > -1 || _userAgent.indexOf('OPR/') > -1){
+		_browser = 'opera';
+	}else if(_userAgent.indexOf('Trident') > -1 || _userAgent.indexOf('MSIE') > -1){
+		_browser = 'explorer';
+	}
+	
+	type_key_val(typeof(_platform), 'platform', _platform);
+	type_key_val(typeof(_userAgent), 'userAgent', _userAgent);
+	
+	for(let _key in _element){
+		if(_object.div.indexOf(_key) < 0){
+			_object.element.push(_key);
+			
+			let _val = _element[_key];
+			let _type = typeof(_val);
+			
+			if(_type === 'function'){
+				_val = '';
+			}
+			
+			type_key_val(_type, _key, _val);
+		}
+	}
+	document.write(_html);
+	
+	let mac_win = (_platform.indexOf('Mac') > -1)?('mac'):('win');
+	
+	/* TSV */
+	let _blob = new Blob([_tsv], {type:'text/tab-separated-values'});
+	let _url = URL.createObjectURL(_blob);
+	let _a = document.createElement('a');
+	_a.href = _url;
+	_a.download = mac_win + '_' + _browser + '_' + _tag + '.tsv';
+	_a.click();
+	
+	console.log('OBJECT:', _object);
+})();
+		</script>
+	</body>
+</html>
